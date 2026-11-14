@@ -11,4 +11,6 @@ sc = bpy.context.scene
 sc.frame_start = sc.frame_end = sc.frame_current
 bpy.ops.wm.usd_export(filepath=out, export_materials=True, export_animation=True,
                       export_shapekeys=True, export_armatures=True,
-                      generate_preview_surface=True, evaluation_mode='VIEWPORT')
+                      generate_preview_surface=True, evaluation_mode='VIEWPORT',
+                      convert_orientation=True, export_global_up_selection='Y',
+                      export_global_forward_selection='NEGATIVE_Z')

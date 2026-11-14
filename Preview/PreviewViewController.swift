@@ -47,7 +47,25 @@ final class PreviewViewController: NSViewController, QLPreviewingController {
         await MainActor.run { self.show(scene, name: url.lastPathComponent) }
     }
 
+    /// Fix up what the USD import gives SceneKit for MToon-style avatars.
+    /// - Blender's MToon "compatible shader" exports metallic = 1, which renders
+    ///   everything as dark metal under PBR; force metalness to 0.
+    /// - Blender writes no normals for meshes with shape keys (the face). Lit
+    ///   shading on such a mesh hides the eyes, brows and mouth, so draw those unlit.
+    private func fixMaterials(_ scene: SCNScene) {
+        scene.rootNode.enumerateHierarchy { node, _ in
+            guard let g = node.geometry else { return }
+            let noNormals = g.sources(for: .normal).isEmpty
+            for m in g.materials {
+                m.metalness.contents = 0.0
+                m.roughness.contents = 1.0
+                if noNormals { m.lightingModel = .constant }
+            }
+        }
+    }
+
     @MainActor private func show(_ scene: SCNScene, name: String) {
+        fixMaterials(scene)
         // Frame the content with our own camera.
         let (mn, mx) = scene.rootNode.boundingBox
         let center = SCNVector3((mn.x + mx.x) / 2, (mn.y + mx.y) / 2, (mn.z + mx.z) / 2)

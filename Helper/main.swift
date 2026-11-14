@@ -29,7 +29,8 @@ final class Converter: NSObject, BlendConverting, NSXPCListenerDelegate {
             return reply(nil, "bpy environment missing; run build.sh install")
         }
         try? FileManager.default.createDirectory(at: cacheDir, withIntermediateDirectories: true)
-        let key = SHA256.hash(data: blend).map { String(format: "%02x", $0) }.joined()
+        let converter = (try? Data(contentsOf: script)) ?? Data()
+        let key = SHA256.hash(data: converter + blend).map { String(format: "%02x", $0) }.joined()
         let cached = cacheDir.appendingPathComponent(key + ".usdz")
         if let hit = try? Data(contentsOf: cached) { return reply(hit, nil) }
         let work = FileManager.default.temporaryDirectory.appendingPathComponent("blenderql-\(UUID().uuidString)")

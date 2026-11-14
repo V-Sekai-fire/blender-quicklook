@@ -13,11 +13,19 @@ Related: [model-quicklook](https://github.com/V-Sekai-fire/model-quicklook) does
 
 ## Install
 
+Prebuilt: download `BlenderQuickLook.zip` from [Releases](../../releases), unzip, and run `./install.sh`. Requires [pixi](https://pixi.sh).
+
+From source:
+
 Requires macOS 13+, Xcode command line tools and [pixi](https://pixi.sh).
 
     ./build.sh install
 
 This builds an ad-hoc signed app into `~/Applications`, installs the pixi environment into `~/Library/Application Support/BlenderQuickLook`, and loads the LaunchAgent. If previews do not appear, approve the background item in System Settings, Login Items.
+
+## Notes on avatars
+
+Blender exports no normals for meshes with shape keys, and its MToon material exports as fully metallic. The preview draws normal-less meshes unlit and forces metalness to 0, so VRM-style faces keep their eyes, brows and mouth.
 
 ## What it does not have
 
