@@ -1,0 +1,14 @@
+[workspace]
+authors = ["K. S. Ernest (iFire) Lee <32321+fire@users.noreply.github.com>"]
+channels = ['conda-forge']
+name = "pixi-env"
+platforms = ['osx-arm64']
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.13.*"
+
+[pypi-dependencies]
+bpy = ">=5.3.0, <6"

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>CFBundleIdentifier</key><string>org.vsekai.BlenderQuickLook</string>
+<key>CFBundleName</key><string>BlenderQuickLook</string>
+<key>CFBundleExecutable</key><string>BlenderQuickLook</string>
+<key>CFBundlePackageType</key><string>APPL</string>
+<key>CFBundleShortVersionString</key><string>1.0</string>
+<key>CFBundleVersion</key><string>1</string>
+<key>LSMinimumSystemVersion</key><string>13.0</string>
+<key>UTImportedTypeDeclarations</key><array><dict>
+ <key>UTTypeIdentifier</key><string>org.blenderfoundation.blender.file</string>
+ <key>UTTypeDescription</key><string>Blender File</string>
+ <key>UTTypeConformsTo</key><array><string>public.data</string></array>
+ <key>UTTypeTagSpecification</key><dict><key>public.filename-extension</key><array><string>blend</string></array></dict>
+</dict></array>
+</dict></plist>

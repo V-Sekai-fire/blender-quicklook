@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "blender-quicklook: Quick Look previews for .blend files, converted with bpy"
+authors:
+  - family-names: Lee
+    given-names: "K. S. Ernest (iFire)"
+    email: ernest.lee@chibifire.com
+    orcid: "https://orcid.org/0000-0003-4570-1436"
+license: MIT
+repository-code: "https://github.com/V-Sekai-fire/blender-quicklook"
+keywords:
+  - quicklook
+  - blender
+  - bpy
+  - macos
